@@ -1,4 +1,5 @@
-const express = require("express");
+import express, { Router } from "express";
+import { usersRouter } from "./users/index.js";
 const app  = express();
 const port = 3000;
 
@@ -9,3 +10,8 @@ app.get("/", (req, res) =>{
 app.listen(port, () => {
   console.log(`listening at http://localhost:${port}`);
 });
+
+const baseRouter = Router();
+baseRouter.use('/users', usersRouter);
+
+app.use('/api', baseRouter);
