@@ -15,7 +15,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
 
   const query = {
-    text: 'INSERT INTO users(name, fsdemail) VALUES($1, $2)',
+    text: 'INSERT INTO users(name, email) VALUES($1, $2)',
     values: ['太郎', 'mytest@samplel.com'],
   }
   db.query(query, (err, data) => {
