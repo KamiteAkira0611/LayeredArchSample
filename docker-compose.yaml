@@ -4,7 +4,7 @@ services:
   server:
     build:
       context: ./server
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     image: webserver-sample-server
     container_name: webserver-sample-server
     ports:
@@ -12,6 +12,13 @@ services:
     volumes:
       - ./server/:/app:delegateds
     tty: true
+    depends_on:
+      - db
+    environment:
+      DB_USER: postgres
+      DB_PASS: password
+      DB_NAME: postgres_db
+      DB_PORT: 5432
   
   front:
     build:
@@ -24,3 +31,19 @@ services:
     volumes:
       - ./front/:/app:delegateds
     tty: true
+
+  db:
+    build:
+      context: ./db
+      dockerfile: Dockerfile
+    image: webserver-sample-db
+    container_name: webserver-sample-db
+    volumes:
+      - ./db/data:/var/lib/postgresql/data
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: password
+      POSTGRES_DB: postgres_db
+
+    ports:
+      - 5432:5432

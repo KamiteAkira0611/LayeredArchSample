@@ -4,9 +4,17 @@
   "main": "src/main.js",
   "license": "MIT",
   "scripts": {
-    "start": "node src/main.js"
+    "start": "node src/main.js",
+    "dev": "nodemon src/main.js"
   },
   "dependencies": {
-    "express": "^4.17.1"
+    "express": "^4.17.1",
+    "nodemon": "^2.0.13"
+  },
+  "nodemonConfig": {
+    "watch": [
+      "src"
+    ],
+    "ext": "js"
   }
 }
