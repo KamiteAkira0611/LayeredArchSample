@@ -1,5 +1,5 @@
 # LayeredArchSample
-node(express) + React + PostgreSQL の簡易アプリです
+NestJS + Prisma + React + PostgreSQL の簡易アプリです
 
 インフラの勉強用に作成
 
