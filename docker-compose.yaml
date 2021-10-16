@@ -1,0 +1,26 @@
+version: '3.7'
+
+services:
+  server:
+    build:
+      context: ./server
+      dockerfile: Dockerfile
+    image: webserver-sample-server
+    container_name: webserver-sample-server
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./server/:/app:delegateds
+    tty: true
+  
+  front:
+    build:
+      context: ./front
+      dockerfile: Dockerfile
+    image: webserver-sample-front
+    container_name: webserver-sample-front
+    ports:
+      - "3001:3000"
+    volumes:
+      - ./front/:/app:delegateds
+    tty: true
