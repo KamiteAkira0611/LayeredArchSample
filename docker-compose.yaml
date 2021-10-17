@@ -20,7 +20,6 @@ services:
       - "3001:5555"
     volumes:
       - ./server/:/app:delegateds
-    command: yarn prisma studio 
     depends_on:
       - mysql-db
 
