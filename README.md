@@ -1,7 +1,5 @@
 # LayeredArchSample
-NestJS + Prisma + React + Mysql の簡易アプリです
-
-インフラの勉強用に作成
+NestJS + Prisma + React + Mysql の簡易アプリ
 
 # 開発環境
 
