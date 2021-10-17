@@ -21,7 +21,7 @@ export class RecipesService {
         creationDate: new Date()
       },
     })
-    return recipe as any;
+    return recipe as Recipe;
   }
 
   async findOneById(id: number): Promise<Recipe> {
