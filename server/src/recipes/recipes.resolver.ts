@@ -13,7 +13,7 @@ export class RecipesResolver {
   constructor(private readonly recipesService: RecipesService) {}
 
   @Query(returns => Recipe)
-  async recipe(@Args('id') id: string): Promise<Recipe> {
+  async recipe(@Args('id') id: number): Promise<Recipe> {
     const recipe = await this.recipesService.findOneById(id);
     if (!recipe) {
       throw new NotFoundException(id);
@@ -36,7 +36,7 @@ export class RecipesResolver {
   }
 
   @Mutation(returns => Boolean)
-  async removeRecipe(@Args('id') id: string) {
+  async removeRecipe(@Args('id') id: number) {
     return this.recipesService.remove(id);
   }
 

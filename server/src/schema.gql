@@ -14,13 +14,13 @@ type Recipe {
 scalar Date
 
 type Query {
-  recipe(id: String!): Recipe!
+  recipe(id: Float!): Recipe!
   recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
 }
 
 type Mutation {
   addRecipe(newRecipeData: NewRecipeInput!): Recipe!
-  removeRecipe(id: String!): Boolean!
+  removeRecipe(id: Float!): Boolean!
 }
 
 input NewRecipeInput {
