@@ -10,10 +10,9 @@ generator client {
   provider = "prisma-client-js"
 }
 
-model User {    
+model Recipe {    
   id Int @id @default(autoincrement())  
-  registeredAt DateTime?    
-  updatedAt DateTime?   
-  email String? 
-  name String   
+  title String
+  description String
+  creationDate DateTime
 } 

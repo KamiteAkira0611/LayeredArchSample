@@ -13,7 +13,4 @@ export class Recipe {
 
   @Field()
   creationDate: Date;
-
-  @Field(type => [String])
-  ingredients: string[];
 }

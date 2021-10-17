@@ -22,7 +22,8 @@ services:
       - ./server/:/app:delegateds
     depends_on:
       - mysql-db
-
+    tty: true
+    
   mysql-db:
     image: mysql:5.7
     restart: always
