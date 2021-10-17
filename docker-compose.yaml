@@ -1,12 +1,10 @@
-version: '3.7'
+version: '3'
 
 services:
   front:
     build:
       context: ./front
       dockerfile: Dockerfile
-    image: webserver-sample-front
-    container_name: webserver-sample-front
     ports:
       - "3001:3000"
     volumes:
@@ -16,26 +14,18 @@ services:
   server:
     build:
       context: ./server
-      dockerfile: Dockerfile
-    image: webserver-sample-server
-    container_name: webserver-sample-server
+      dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
     volumes:
       - ./server/:/app:delegateds
-    links:
-      - db
-    tty: true
+    depends_on:
+      - mysql-db
 
-  db:
-    build:
-      context: ./db
-      dockerfile: Dockerfile
-    image: webserver-sample-db
-    container_name: webserver-sample-db
-    ports:
-      - 5432:5432
-    volumes:
-      - ./db/data:/var/lib/postgresql/data
+  mysql-db:
+    image: mysql:5.7
+    restart: always
     environment:
-      POSTGRES_PASSWORD: admin-pass
+      MYSQL_ROOT_PASSWORD: prisma
+    volumes:
+      - ./mysql/data:/var/lib/mysql
