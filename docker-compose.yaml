@@ -6,7 +6,7 @@ services:
       context: ./front
       dockerfile: Dockerfile
     ports:
-      - "3001:3000"
+      - "3002:3000"
     volumes:
       - ./front/:/app:delegateds
     tty: true
@@ -17,8 +17,10 @@ services:
       dockerfile: Dockerfile.dev
     ports:
       - "3000:3000"
+      - "3001:5555"
     volumes:
       - ./server/:/app:delegateds
+    command: yarn prisma studio 
     depends_on:
       - mysql-db
 
