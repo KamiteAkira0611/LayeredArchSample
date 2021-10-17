@@ -1,13 +1,14 @@
 import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
-import { PostService } from './post.service';
-import { PrismaService } from './prisma.service';
-import { UserService } from './user.service';
+import { GraphQLModule } from '@nestjs/graphql';
+import { RecipesModule } from './recipes/recipes.module';
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService, PrismaService, UserService, PostService],
+  imports: [
+    RecipesModule,
+    GraphQLModule.forRoot({
+      installSubscriptionHandlers: true,
+      autoSchemaFile: 'schema.gql',
+    }),
+  ],
 })
 export class AppModule {}
