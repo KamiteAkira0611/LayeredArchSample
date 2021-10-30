@@ -52,13 +52,8 @@ const routes = [
       },
       {
         exact: true,
-        path: "/users",
-        component: lazy(() => import("src/pages/users/usersListPage")),
-      },
-      {
-        exact: true,
-        path: "/users/create",
-        component: lazy(() => import("src/pages/users/usersCreatePage")),
+        path: "/recipes",
+        component: lazy(() => import("src/pages/recipes")),
       },
       {
         component: () => <Redirect to="/" />,

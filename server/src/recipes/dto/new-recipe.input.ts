@@ -9,6 +9,6 @@ export class NewRecipeInput {
 
   @Field({ nullable: true })
   @IsOptional()
-  @Length(30, 255)
+  @MaxLength(255)
   description?: string;
 }
