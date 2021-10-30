@@ -5,7 +5,7 @@ NestJS + Prisma + React + Mysql の簡易アプリ
 
 - React Frontend  - http://localhost:3002
 - GraphQL Server  - http://localhost:3000/graphql
-- DB Admin - http://localhost:3001/
+- DB Admin - http://localhost:3001/ (you should be `$ yarn prisma studio`)
 
 ```
 $ docker compose up -d
@@ -19,7 +19,6 @@ $ docker compose up -d
 $ yarn prisma migrate dev --name init
 ```
 ### Admin
-http://localhost:3001/
 ```
 $ yarn prisma studio
 ```
