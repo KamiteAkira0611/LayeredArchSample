@@ -5,28 +5,31 @@ services:
     build:
       context: ./front
       dockerfile: Dockerfile
+    platform: linux/amd64
     ports:
       - "3002:3000"
     volumes:
       - ./front/:/app:delegateds
-    tty: true
+    command: yarn start
 
   server:
     build:
       context: ./server
       dockerfile: Dockerfile.dev
+    platform: linux/amd64
     ports:
       - "3000:3000"
       - "3001:5555"
     volumes:
       - ./server/:/app:delegateds
+    command: yarn start:dev
     depends_on:
       - mysql-db
-    tty: true
     
   mysql-db:
     image: mysql:5.7
     restart: always
+    platform: linux/amd64
     environment:
       MYSQL_ROOT_PASSWORD: prisma
     volumes:
