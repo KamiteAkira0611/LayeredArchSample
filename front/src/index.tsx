@@ -5,7 +5,7 @@ import { createBrowserHistory } from "history";
 import { Router } from 'react-router';
 import routes, { renderRoutes } from "./routes";
 import { ApolloProvider } from '@apollo/client';
-import apolloclient from './utils/graqhpl';
+import apolloclient from './utils/graphql';
 
 const history = createBrowserHistory();
 

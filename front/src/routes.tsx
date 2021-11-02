@@ -13,13 +13,14 @@ type routeType = {
 export const renderRoutes = (routes: any) => (
   <Suspense fallback={<p>loading</p>}>
     <Switch>
-      {routes.map((route: routeType) => {
+      {routes.map((route: routeType, i: number) => {
         const Guard = route.guard || Fragment;
         const Layout = route.layout || Fragment;
         const Component = route.component;
 
         return (
           <Route
+            key={i}
             path={route.path}
             exact={route.exact}
             render={(props) => (

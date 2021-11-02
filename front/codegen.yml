@@ -1,0 +1,12 @@
+schema: "http://localhost:3000/graphql"
+documents: src/**/*.tsx
+generates:
+  src/utils/graphql/types.d.ts:
+    plugins:
+      - "typescript"
+      - "typescript-operations"
+      - "typescript-resolvers"
+      - "typescript-react-apollo"
+  src/utils/graphql/schema.graphql:
+    plugins:
+      - schema-ast

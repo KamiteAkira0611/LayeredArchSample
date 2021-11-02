@@ -1,0 +1,29 @@
+"""Date custom scalar type"""
+scalar Date
+
+type Mutation {
+  addRecipe(newRecipeData: NewRecipeInput!): Recipe!
+  removeRecipe(id: Float!): Boolean!
+}
+
+input NewRecipeInput {
+  description: String
+  title: String!
+}
+
+type Query {
+  recipe(id: Float!): Recipe!
+  recipes(skip: Int = 0, take: Int = 25): [Recipe!]!
+}
+
+"""recipe """
+type Recipe {
+  creationDate: Date!
+  description: String
+  id: ID!
+  title: String!
+}
+
+type Subscription {
+  recipeAdded: Recipe!
+}
