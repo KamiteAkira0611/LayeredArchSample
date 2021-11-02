@@ -1,5 +1,5 @@
 import { useQuery, gql } from '@apollo/client'
-import { Recipe } from 'src/utils/graphql/types'
+import { Recipe } from 'src/graphql/types'
 
 const GET_RECIPES = gql`
   query GetRecipes{
