@@ -4,7 +4,7 @@ services:
   front:
     build:
       context: ./front
-      dockerfile: Dockerfile
+      dockerfile: Dockerfile.dev
     platform: linux/amd64
     ports:
       - "3000:3000"
@@ -13,10 +13,8 @@ services:
     tty: true
     depends_on:
       - server
-    # command: > 
-    #   bash -c "yarn install && 
-    #   yarn codegen && 
-    #   yarn dev"
+    command: > 
+      bash -c "yarn install && yarn dev"
 
   server:
     build:
