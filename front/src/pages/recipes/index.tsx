@@ -11,12 +11,6 @@ const RECIPES_QUERY = gql`
   }
 `
 
-const CREATE_RECIPE = gql`
-  mutation {
-    
-  }
-`
-
 const Recipes = () => {
   const { loading, error, data } = useQuery(RECIPES_QUERY)
 
