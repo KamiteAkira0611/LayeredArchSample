@@ -210,7 +210,7 @@ export type Resolvers<ContextType = any> = {
 
 export const GetRecipesDocument = gql`
     query GetRecipes {
-  recipes(skip: 0, take: 25) {
+  recipes {
     id
     title
     description

@@ -10,10 +10,13 @@ services:
       - "3000:3000"
     volumes:
       - ./front/:/app:delegateds
-    command: > 
-      bash -c "yarn install && 
-      yarn codegen && 
-      yarn start"
+    tty: true
+    depends_on:
+      - server
+    # command: > 
+    #   bash -c "yarn install && 
+    #   yarn codegen && 
+    #   yarn dev"
 
   server:
     build:

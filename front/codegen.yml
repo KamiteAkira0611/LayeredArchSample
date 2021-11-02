@@ -1,7 +1,7 @@
 schema: "http://localhost:3000/graphql"
-documents: src/**/*.tsx
+documents: ["src/**/*.ts", "src/**/*.tsx"]
 generates:
-  src/utils/graphql/types.d.ts:
+  src/utils/graphql/types.ts:
     plugins:
       - "typescript"
       - "typescript-operations"

@@ -1,9 +1,9 @@
 import { useQuery, gql } from '@apollo/client'
 import { Recipe } from 'src/utils/graphql/types'
 
-const RECIPES_QUERY = gql`
-  query GetRecipes {
-    recipes(skip:0, take: 25){
+const GET_RECIPES = gql`
+  query GetRecipes{
+    recipes {
       id
       title
       description
@@ -12,7 +12,7 @@ const RECIPES_QUERY = gql`
 `
 
 const Recipes = () => {
-  const { loading, error, data } = useQuery(RECIPES_QUERY)
+  const { loading, error, data } = useQuery(GET_RECIPES)
 
   if(loading) return <p>loading</p>
   if(error) return <p>error</p>
